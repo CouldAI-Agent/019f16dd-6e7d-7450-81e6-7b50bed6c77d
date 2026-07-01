@@ -32,6 +32,25 @@ class ProposalApp extends StatelessWidget {
 class ProposalScreen extends StatelessWidget {
   const ProposalScreen({super.key});
 
+  Widget _buildBulletPoint(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0, left: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('• ', style: TextStyle(fontSize: 16, height: 1.6)),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(fontSize: 16, height: 1.6),
+              textAlign: TextAlign.justify,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -121,6 +140,27 @@ class ProposalScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 16, height: 1.6),
                       textAlign: TextAlign.justify,
                     ),
+                    SizedBox(height: 32),
+                    Text(
+                      'II. TUJUAN KEGIATAN',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Tujuan dari penyelenggaraan rangkaian kegiatan Peringatan HUT Kemerdekaan RI ke-81 di Dusun Maguan adalah sebagai berikut:',
+                      style: TextStyle(fontSize: 16, height: 1.6),
+                      textAlign: TextAlign.justify,
+                    ),
+                    SizedBox(height: 12),
+                    _buildBulletPoint('Memperingati dan memeriahkan Hari Ulang Tahun Kemerdekaan Republik Indonesia yang ke-81.'),
+                    _buildBulletPoint('Mengenang jasa dan pengorbanan para pahlawan bangsa yang telah berjuang merebut kemerdekaan.'),
+                    _buildBulletPoint('Mempererat tali silaturahmi, persaudaraan, dan kekompakan antarwarga Dusun Maguan.'),
+                    _buildBulletPoint('Menumbuhkan dan meningkatkan semangat nasionalisme, patriotisme, serta cinta tanah air di kalangan masyarakat, khususnya generasi muda.'),
+                    _buildBulletPoint('Menjadi wadah untuk menyalurkan minat, bakat, dan kreativitas warga melalui berbagai perlombaan dan kegiatan positif.'),
+                    _buildBulletPoint('Mendorong semangat gotong royong dan kepedulian sosial di lingkungan masyarakat Dusun Maguan.'),
                     SizedBox(height: 48),
                     Align(
                       alignment: Alignment.centerRight,
